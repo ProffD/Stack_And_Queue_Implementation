@@ -1,20 +1,24 @@
 #pragma once
 #include<iostream>
-#define MAX_SIZE 10
+#include<memory>
+//#define MAX_SIZE 10
 
 
 class Stack
 {
 public:	
-	Stack();
+	Stack(int size);
 	bool isEmpty()const;
 	int peek()const;
 	void push(int var);
 	void pop();
 	~Stack();
 private:
+	std::unique_ptr<int[]> arr;
+	//int arr[MAX_SIZE];
+	int max_size;
 	int top;
-	int arr[MAX_SIZE];
+	
 	
 };
 

@@ -1,11 +1,13 @@
 #pragma once
 #include<iostream>
-#define MAX_SIZE 6
+#include<memory>
+//#define QMAX_SIZE 6
+
 
 class Queue
 {
 public:
-	Queue();
+	Queue(int size);
 	bool isEmpty()const;
 	void enqueue(int var);
 	void dequeue();
@@ -15,6 +17,9 @@ public:
 private:
 	int front =-1;
 	int rear = -1;
-	int arr[MAX_SIZE];
+	int max_size;
+	std::unique_ptr<int[]> arr;
+	//int arr[QMAX_SIZE];
+
 };
 

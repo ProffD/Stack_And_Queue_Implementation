@@ -2,17 +2,27 @@
 #include "Queue.h"
 
 
-Queue::Queue()
+
+Queue::Queue(int size)
 {
+	arr = std::make_unique<int[]>(size);
+	if (arr == nullptr)
+	{
+		std::cerr << "Could not allocate memory indicated!" << '\n';
+		exit(1);
+	}
+	max_size = size;
 }
+
 bool Queue::isEmpty()const
 {
 		return front == -1 && rear == -1 ? true : false;	
 }
+
 void Queue::enqueue(int var)
 {
-	if (rear == MAX_SIZE - 1)
-		std::cerr << "Queue is full!\nMaximum size: " << MAX_SIZE << '\n';
+	if (rear == max_size - 1)
+		std::cerr << "Queue is full!\nMaximum size: " << max_size << '\n';
 	else {
 		if(front == -1)
 		    front = 0;
@@ -21,6 +31,7 @@ void Queue::enqueue(int var)
 	}
 	 
 }
+
 void Queue::dequeue()
 {
 	if (isEmpty())
@@ -34,16 +45,18 @@ void Queue::dequeue()
 	}
 
 }
+
 int Queue::peek()const
 {
 	if (!isEmpty())
 		return arr[front];
 	else {
 		std::cerr << "Queue is empty!" << '\n';
-		return -1;
+		//return -1;
 	}
 	
 }
+
 void Queue::displayQueue()
 {
 	if(isEmpty()) 
@@ -53,6 +66,7 @@ void Queue::displayQueue()
 		  std::cout << arr[i] << " ";
 		
 }
+
 Queue::~Queue()
 {
 }
