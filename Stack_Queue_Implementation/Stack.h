@@ -5,8 +5,7 @@
 
 class Stack
 {
-public:
-	int arr[MAX_SIZE];
+public:	
 	Stack();
 	bool isEmpty()const;
 	int peek()const;
@@ -15,6 +14,7 @@ public:
 	~Stack();
 private:
 	int top;
+	int arr[MAX_SIZE];
 	
 };
 

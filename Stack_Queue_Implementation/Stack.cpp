@@ -16,7 +16,7 @@ bool Stack::isEmpty()const
 int Stack::peek()const
 {
 	if (isEmpty()) {
-		std::cout << "Stack is empty!" << '\n';
+		std::cerr << "Stack is empty!" << '\n';
 		return -1;
 	}
 	else
@@ -26,7 +26,7 @@ void Stack::push(int var)
 {
 	
 	if (top == MAX_SIZE -1)
-		std::cout << "Stack is full!!\nMaximum size is: " << MAX_SIZE << '\n';
+		std::cerr << "Stack is full!!\nMaximum size is: " << MAX_SIZE << '\n';
 	else {
 		top++;
 		arr[top] = var;
@@ -37,7 +37,7 @@ void Stack::push(int var)
 void Stack::pop()
 {
 	if (isEmpty()) 
-		std::cout << "Stack is empty!" << '\n';
+		std::cerr << "Stack is empty!" << '\n';
 	else
 	  top--;
 }
